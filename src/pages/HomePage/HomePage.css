@@ -1,0 +1,44 @@
+.homepage__signup-card{
+    width: 500px;
+    margin-top: 220px;
+    margin-right: 200px;
+    background-color:transparent ;
+    font: white;
+    
+
+}
+
+.homepage__content{
+    margin-right: 400px;
+    margin-top: 70px;
+    color: white;
+    text-align: justify;
+    margin-left: 100px;
+}
+
+
+.homepage{
+    display: flex;
+}
+
+.homepage__description-text{
+    font-size: 30px;
+}
+
+.homepage__description-title{
+    font-size: 40px;
+    font: arial solid white;
+}
+
+.homepage__signup{
+    font: arial solid white;
+}
+
+.ant-form-item-label > label {
+    color: white !important;
+    font: solid;
+  }
+
+  .homepage__signup-card .ant-card-head-title {
+    color: white;
+  }
