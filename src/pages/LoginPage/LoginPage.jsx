@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
+import { Form, Input, Button, Card } from "antd";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -16,9 +17,8 @@ function LoginPage() {
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
 
-  const handleLoginSubmit = (e) => {
-    e.preventDefault();
-    const requestBody = { email, password };
+  const handleLoginSubmit = (values) => {
+    const requestBody = { email: values.email, password: values.password };
 
     authService
       .login(requestBody)
@@ -35,26 +35,28 @@ function LoginPage() {
 
   return (
     <div className="LoginPage">
-      <h1>Login</h1>
+      <h1 style={{color: "white"}}>Login</h1>
 
-      <form onSubmit={handleLoginSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+      <Form onFinish={handleLoginSubmit} layout="vertical">
+        <Form.Item label="Email:" name="email" rules={[{ required: true, message: "Please input your email!" }]}>
+          <Input value={email} onChange={handleEmail} size="large" style={{ width: "250px" }} />
+        </Form.Item>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+        <Form.Item label="Password:" name="password" rules={[{ required: true, message: "Please input your password!" }]}>
+          <Input.Password value={password} onChange={handlePassword} size="large" style={{ width: "250px" }} />
+        </Form.Item>
 
-        <button type="submit">Login</button>
-      </form>
+        <Form.Item>
+          <Button type="primary" htmlType="submit" className="navbar__button" size="large" style={{backgroundColor: "white", color: "black"}}>
+            Login
+          </Button>
+        </Form.Item>
+      </Form>
+
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      <p>Don't have an account yet?</p>
-      <Link to={"/signup"}> Sign Up</Link>
+      <p style={{color: "white"}}>Don't have an account yet?</p>
+      <Link to={"/signup"} style={{color: "white"}}> Sign Up</Link>
     </div>
   );
 }

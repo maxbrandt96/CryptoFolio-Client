@@ -1,0 +1,27 @@
+.SignupPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  .SignupPage .ant-card {
+    margin-top: 20px;
+    background-color: transparent;
+  }
+  
+  .SignupPage .ant-form-item-label {
+    color: white;
+  }
+  
+  .SignupPage .ant-input,
+  .SignupPage .ant-btn {
+    background-color: white;
+    color: black;
+  }
+  
+  .SignupPage .ant-form-item-explain {
+    color: red;
+  }
+  

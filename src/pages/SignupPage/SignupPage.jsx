@@ -2,6 +2,7 @@ import "./SignupPage.css";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../../services/auth.service";
+import { Form, Input, Button, Card } from "antd";
 
 function SignupPage() {
   const [email, setEmail] = useState("");
@@ -15,31 +16,15 @@ function SignupPage() {
   const handlePassword = (e) => setPassword(e.target.value);
   const handleName = (e) => setName(e.target.value);
 
-  const handleSignupSubmit = (e) => {
-    e.preventDefault();
-    // Create an object representing the request body
-    const requestBody = { email, password, name };
+  const handleSignupSubmit = (values) => {
+    const requestBody = { email: values.email, password: values.password, name: values.name };
 
-    // Send a request to the server using axios
-    /* 
-    const authToken = localStorage.getItem("authToken");
-    axios.post(
-      `${process.env.REACT_APP_SERVER_URL}/auth/signup`, 
-      requestBody, 
-      { headers: { Authorization: `Bearer ${authToken}` },
-    })
-    .then((response) => {})
-    */
-
-    // Or using a service
     authService
       .signup(requestBody)
       .then((response) => {
-        // If the POST request is successful redirect to the login page
         navigate("/login");
       })
       .catch((error) => {
-        // If the request resolves with an error, set the error message in the state
         const errorDescription = error.response.data.message;
         setErrorMessage(errorDescription);
       });
@@ -47,30 +32,32 @@ function SignupPage() {
 
   return (
     <div className="SignupPage">
-      <h1>Sign Up</h1>
+      <Card title="Sign Up" style={{ width: "400px" }}>
+        <Form onFinish={handleSignupSubmit}>
+          <Form.Item label="Email:" name="email" rules={[{ required: true, message: "Please input your email!" }]}>
+            <Input value={email} onChange={handleEmail} size="large" style={{ width: "250px" }} />
+          </Form.Item>
 
-      <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
-        <input type="email" name="email" value={email} onChange={handleEmail} />
+          <Form.Item label="Password:" name="password" rules={[{ required: true, message: "Please input your password!" }]}>
+            <Input.Password value={password} onChange={handlePassword} size="large" style={{ width: "250px" }} />
+          </Form.Item>
 
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handlePassword}
-        />
+          <Form.Item label="Name:" name="name" rules={[{ required: true, message: "Please input your name!" }]}>
+            <Input value={name} onChange={handleName} size="large" style={{ width: "250px" }} />
+          </Form.Item>
 
-        <label>Name:</label>
-        <input type="text" name="name" value={name} onChange={handleName} />
+          <Form.Item>
+            <Button type="primary" htmlType="submit" className="navbar__button" size="large">
+              Sign Up
+            </Button>
+          </Form.Item>
+        </Form>
 
-        <button type="submit">Sign Up</button>
-      </form>
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-
-      <p>Already have account?</p>
-      <Link to={"/login"}> Login</Link>
+        <p>Already have an account?</p>
+        <Link to={"/login"}> Login</Link>
+      </Card>
     </div>
   );
 }

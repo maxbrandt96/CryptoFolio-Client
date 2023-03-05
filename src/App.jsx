@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import CoinPage from "./pages/CoinPage/CoinPage";
 
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
@@ -35,6 +36,7 @@ function App() {
             </IsAnon>
           }
         />
+
         <Route
           path="/login"
           element={
@@ -43,8 +45,10 @@ function App() {
             </IsAnon>
           }
         />
-              <Route path="/crypto-list" element={<CryptoList />}  />
 
+        <Route path="/crypto-list" element={<CryptoList />} />
+
+        <Route exact path="/coins/:id" element={<CoinPage />} />
       </Routes>
     </div>
   );
