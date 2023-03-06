@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { Table, Input, Button } from "antd";
-import {getCryptoData} from "../../services/cryptoApi";
+import { getCryptoData } from "../../services/cryptoApi";
 import axios from "axios";
-import "./CryptoList.css"
+import "./CryptoList.css";
 import { Link } from "react-router-dom";
+import { userId } from "../../App"; // Import the userId constant from App.jsx
 
-
+/* eslint-disable no-restricted-globals */
 function CryptoList() {
   const [cryptoData, setCryptoData] = useState([]);
   const [searchText, setSearchText] = useState("");
@@ -52,45 +53,71 @@ function CryptoList() {
       title: "Add to Portfolio",
       dataIndex: "add",
       key: "add",
-      render: (text, record) => (
-        <div>
-          <Input
-            type="number"
-            min={0}
-            step={0.01}
-            placeholder={0}
-            style={{
-              width: "50px",
-              marginRight: "8px",
-              borderRadius: "4px",
-              border: "1px solid #d9d9d9",
-              padding: "4px 11px",
-              boxSizing: "border-box",
-              fontSize: "14px",
-              outline: "none",
-            }}
-            onChange={(event) =>
-              setPortfolio((prevState) => ({
-                ...prevState,
-                [record.key]: parseFloat(event.target.value),
-              }))
-            }
-          />
-          <Button
-            type="primary" className="navbar__button"
-            onClick={() =>
-              setPortfolio((prevState) => ({
-                ...prevState,
-                [record.key]: parseInt(
-                  prevState[record.key] ? prevState[record.key] : 0
-                ) + 1
-              }))
-            }
-          >
-            Add
-          </Button>
-        </div>
-      ),
+      render: (text, record) => {
+        const currentValue = portfolio[record.key] || 0;
+
+        return (
+          <div>
+            <Input
+              type="number"
+              min={0}
+              step={0.01}
+              placeholder={0}
+              style={{
+                width: "50px",
+                marginRight: "8px",
+                borderRadius: "4px",
+                border: "1px solid #d9d9d9",
+                padding: "4px 11px",
+                boxSizing: "border-box",
+                fontSize: "14px",
+                outline: "none",
+              }}
+              onChange={(event) =>
+                setPortfolio((prevState) => ({
+                  ...prevState,
+                  [record.key]: parseFloat(event.target.value),
+                }))
+              }
+            />
+            <Button
+              type="primary"
+              className="navbar__button"
+              onClick={async () => {
+                try {
+                  const parsedValue = parseFloat(currentValue || 0);
+                  const updatedPortfolio = Object.entries(portfolio).reduce(
+                    (acc, [key, value]) => {
+                      acc[key] = key === record.key ? parsedValue : value;
+                      return acc;
+                    },
+                    {}
+                  );
+                  const response = await axios.post(
+                    `http://localhost:5005/api/${userId}/portfolio`,
+                    {
+                      userId,
+                      portfolio: updatedPortfolio,
+                    }
+                  );
+
+                  // Update the portfolio state with the new data
+                  setPortfolio(updatedPortfolio);
+                } catch (error) {
+                  console.error("Error saving portfolio data:", error);
+                }
+              }}
+            >
+              Add
+            </Button>
+            {currentValue > 0 && (
+              <span style={{ marginLeft: "8px" }}>
+                ({currentValue.toFixed(2)})
+              </span>
+            )}
+          </div>
+        );
+      },
     },
   ];
   const handleSearch = (event) => {

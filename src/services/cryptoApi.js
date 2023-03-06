@@ -11,6 +11,7 @@ export const getCoins = async () => {
         per_page: 100,
         page: 1,
         sparkline: false,
+        localization: "es"
       },
     });
     return response.data;

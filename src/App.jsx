@@ -6,10 +6,11 @@ import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import CoinPage from "./pages/CoinPage/CoinPage";
-
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
+export const userId = "USER_ID"; // Define the userId constant here
+export const _id = ""
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           path="/profile"
           element={
             <IsPrivate>
-              <ProfilePage />
+              <ProfilePage userId={userId} />
             </IsPrivate>
           }
         />
