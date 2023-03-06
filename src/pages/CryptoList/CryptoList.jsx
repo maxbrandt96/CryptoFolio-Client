@@ -19,7 +19,7 @@ function CryptoList() {
       key: "rank",
     },
     {
-      title: "Name",
+      title: "Nombre",
       dataIndex: "name",
       key: "name",
       render: (text, record) => (
@@ -35,22 +35,22 @@ function CryptoList() {
       ),
     },
     {
-      title: "Price",
+      title: "Precio",
       dataIndex: "price",
       key: "price",
     },
     {
-      title: "Market Cap",
+      title: "Capitalizacion de mercado",
       dataIndex: "marketCap",
       key: "marketCap",
     },
     {
-      title: "Volume 24h",
+      title: "Volumen 24h",
       dataIndex: "volume24h",
       key: "volume24h",
     },
     {
-      title: "Add to Portfolio",
+      title: "Agregar a portafolio",
       dataIndex: "add",
       key: "add",
       render: (text, record) => {
@@ -174,7 +174,7 @@ function CryptoList() {
   return (
     <div>
       <Input
-        placeholder="Search by name"
+        placeholder="Busca por nombre"
         value={searchText}
         onChange={handleSearch}
         style={{ marginBottom: "16px", width: "200px" }}
