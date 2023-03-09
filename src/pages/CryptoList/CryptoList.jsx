@@ -4,14 +4,20 @@ import { getCryptoData } from "../../services/cryptoApi";
 import axios from "axios";
 import "./CryptoList.css";
 import { Link } from "react-router-dom";
-import { userId } from "../../App"; // Import the userId constant from App.jsx
+import { useContext } from "react";
+import { AuthContext } from "../../context/auth.context";
+import { useRef } from "react";
+
 
 /* eslint-disable no-restricted-globals */
 function CryptoList() {
   const [cryptoData, setCryptoData] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [portfolio, setPortfolio] = useState({});
-
+  const {user } = useContext(AuthContext);
+  const userId = user._id
+  const inputRef = useRef(null);
+  console.log(user._id)
   const columns = [
     {
       title: "Rank",
@@ -59,10 +65,12 @@ function CryptoList() {
         return (
           <div>
             <Input
+              ref={inputRef}
               type="number"
               min={0}
               step={0.01}
               placeholder={0}
+              value = {portfolio[record.key]}
               style={{
                 width: "50px",
                 marginRight: "8px",
@@ -102,7 +110,12 @@ function CryptoList() {
                   );
 
                   // Update the portfolio state with the new data
-                  setPortfolio(updatedPortfolio);
+                  // setPortfolio(updatedPortfolio);
+                  console.log(portfolio)
+                  setPortfolio((prevState) => ({
+                    ...prevState,
+                    [record.key]: "",
+                  }))
                 } catch (error) {
                   console.error("Error saving portfolio data:", error);
                 }

@@ -5,6 +5,7 @@ import { AuthContext } from "../../context/auth.context";
 import authService from "../../services/auth.service";
 import { Form, Input, Button, Card } from "antd";
 
+
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

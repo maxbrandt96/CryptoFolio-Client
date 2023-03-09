@@ -9,8 +9,7 @@ import CoinPage from "./pages/CoinPage/CoinPage";
 import Navbar from "./components/Navbar/Navbar";
 import IsPrivate from "./components/IsPrivate/IsPrivate";
 import IsAnon from "./components/IsAnon/IsAnon";
-export const userId = "USER_ID"; // Define the userId constant here
-export const _id = ""
+
 
 function App() {
   return (
@@ -24,7 +23,7 @@ function App() {
           path="/profile"
           element={
             <IsPrivate>
-              <ProfilePage userId={userId} />
+              <ProfilePage />
             </IsPrivate>
           }
         />
@@ -47,7 +46,7 @@ function App() {
           }
         />
 
-        <Route path="/crypto-list" element={<CryptoList />} />
+        <Route path="/crypto-list" element={<IsPrivate><CryptoList /></IsPrivate>} />
 
         <Route exact path="/coins/:id" element={<CoinPage />} />
       </Routes>

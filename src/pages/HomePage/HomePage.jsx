@@ -65,7 +65,7 @@ function HomePage() {
         
             <Form.Item>
               <Button type="primary" htmlType="submit" className="navbar__button" size="large">
-                Sign Up
+                Registrarse
               </Button>
             </Form.Item>
           </Form>
