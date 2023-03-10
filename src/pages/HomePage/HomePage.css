@@ -10,7 +10,7 @@
 
 .homepage__content{
     margin-right: 400px;
-    margin-top: 170px;
+    margin-top: 90px;
     color: white;
     text-align: justify;
     margin-left: 100px;
@@ -23,12 +23,13 @@
 
 .homepage__description-text{
     font-size: 30px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Roboto', sans-serif;    margin-bottom: 00px;
 }
 
 .homepage__description-title{
     font-size: 40px;
     font: arial solid white;
+    font-family: 'Roboto', sans-serif;
 }
 
 .homepage__signup{

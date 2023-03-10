@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+CryptoFolio
+CryptoFolio is a full-stack web application for managing cryptocurrency portfolios. The application consists of two main components: the CryptoFolio-Server backend, and the CryptoFolio-Client frontend.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+CryptoFolio-Server
+The CryptoFolio-Server is a Node.js application that provides REST API endpoints for managing cryptocurrency portfolios. The server can handle requests for user authentication, portfolio management, and cryptocurrency price data retrieval.
 
-## Available Scripts
+Technologies Used
+The CryptoFolio-Server uses the following technologies:
 
-In the project directory, you can run:
+Node.js
+Express.js
+MongoDB
+Mongoose
+Bcrypt
+JSON Web Tokens
+Getting Started
+To run the CryptoFolio-Server locally, you will need to install Node.js and MongoDB. Then, follow these steps:
 
-### `npm start`
+Clone the CryptoFolio-Server repository.
+Install the required dependencies using npm install.
+Start the server using npm start.
+By default, the server will run on port 5000. You can configure the port and other settings in the config.js file.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+CryptoFolio-Client
+The CryptoFolio-Client is a React application that provides a web interface for interacting with the CryptoFolio-Server. The client can display user portfolio data and real-time cryptocurrency price data.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Technologies Used
+The CryptoFolio-Client uses the following technologies:
 
-### `npm test`
+React
+Redux
+React Router
+Chart.js
+Getting Started
+To run the CryptoFolio-Client locally, you will need to install Node.js. Then, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clone the CryptoFolio-Client repository.
+Install the required dependencies using npm install.
+Start the client using npm start.
+By default, the client will run on port 3000. You can configure the port and other settings in the package.json file.
 
-### `npm run build`
+Contributing
+Contributions to the CryptoFolio project are welcome. If you would like to contribute, please create a pull request with your changes.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+License
+The CryptoFolio project is licensed under the MIT License. See the LICENSE file for more information.

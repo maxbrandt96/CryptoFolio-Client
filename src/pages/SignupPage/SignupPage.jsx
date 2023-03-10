@@ -31,10 +31,16 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
-      <Card title="Sign Up" style={{ width: "400px" }}>
-        <Form onFinish={handleSignupSubmit}>
-          <Form.Item label="Email:" name="email" rules={[{ required: true, message: "Please input your email!" }]}>
+  <div className="LoginPage">
+    <h1 style={{color: "white"}}>Sign Up</h1>
+
+    <Form onFinish={handleSignupSubmit} layout="vertical">
+
+      <Form.Item label="Name:" name="name" rules={[{ required: true, message: "Please input your name!" }]}>
+            <Input value={name} onChange={handleName} size="large" style={{ width: "250px" }} />
+          </Form.Item>
+          
+    <Form.Item label="Email:" name="email" rules={[{ required: true, message: "Please input your email!" }]}>
             <Input value={email} onChange={handleEmail} size="large" style={{ width: "250px" }} />
           </Form.Item>
 
@@ -42,24 +48,21 @@ function SignupPage() {
             <Input.Password value={password} onChange={handlePassword} size="large" style={{ width: "250px" }} />
           </Form.Item>
 
-          <Form.Item label="Name:" name="name" rules={[{ required: true, message: "Please input your name!" }]}>
-            <Input value={name} onChange={handleName} size="large" style={{ width: "250px" }} />
-          </Form.Item>
+          
 
           <Form.Item>
             <Button type="primary" htmlType="submit" className="navbar__button" size="large">
               Sign Up
             </Button>
           </Form.Item>
-        </Form>
+    </Form>
 
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
+    {errorMessage && <p className="error-message">{errorMessage}</p>}
 
-        <p>Already have an account?</p>
-        <Link to={"/login"}> Login</Link>
-      </Card>
-    </div>
-  );
+    <p style={{color: "white"}}>Already have an account?</p>
+    <Link to={"/login"} style={{color: "white"}}> Sign In</Link>
+  </div>
+);
 }
 
 export default SignupPage;

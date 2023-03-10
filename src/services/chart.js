@@ -52,21 +52,22 @@ function CoinChart({ coinId, timePeriod }) {
     }
 
     chartRef.current = new Chart('coin-chart', {
-      type: 'line',
-      data: chartData,
-      options: {
-        scales: {
-          xAxes: [
-            {
-              type: 'time',
-              time: {
-                unit: 'day',
-              },
-            },
-          ],
+  type: 'line',
+  data: chartData,
+  options: {
+    scales: {
+      xAxes: [
+        {
+          type: 'time',
+          time: {
+            unit: 'day',
+          },
         },
-      },
-    });
+      ],
+    },
+    backgroundColor: 'purple'
+  },
+});
   }, [chartData]);
 
   return <canvas id="coin-chart"></canvas>;

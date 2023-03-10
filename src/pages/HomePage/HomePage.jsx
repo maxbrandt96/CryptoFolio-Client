@@ -32,31 +32,31 @@ function HomePage() {
   return (
     <div className="homepage">
       <div className="homepage__content">
-        <h2 className="homepage__description-title">¿Qué es CryptoFolio?</h2>
+        <h2 className="homepage__description-title">¿What is CryptoFolio?</h2>
         <p className="homepage__description-text">
-    CryptoFolio es un sitio web que te permite crear un portafolio de prueba y rastrear tus inversiones en criptomonedas 
-    en tiempo real.<br/>
+        CryptoFolio is a website that allows you to create a test portfolio and track your cryptocurrency investments in real time.
+
+<br/>
     <br/>
-     Puedes agregar tus criptomonedas favoritas a tu portafolio, ver sus precios y rendimientos, y tomar
-    decisiones informadas basadas en los últimos datos del mercado. <br/> <br/>Ya seas un principiante o un inversor experimentado, CryptoFolio puede ayudarte a administrar tus activos de criptomonedas y alcanzar tus objetivos 
-    de inversión.
+    You can add your favorite cryptocurrencies to your portfolio, view their prices and performance, and make informed decisions based on the latest market data. <br/> 
+    <br/>Whether you are a beginner or an experienced investor, CryptoFolio can help you manage your cryptocurrency assets and achieve your investment goals.
   </p>
       </div>
       <div className="homepage__signup">
-        <Card title="REGISTRARSE" className="homepage__signup-card" bordered={false}>
+        <Card title="Create Account" className="homepage__signup-card" bordered={false}>
           <Form onFinish={handleSignupSubmit} layout="vertical">
-          <Form.Item label="NOMBRE" name="name" rules={[{ required: true, message: "Please input your name!" }]}>
+          <Form.Item label="Name" name="name" rules={[{ required: true, message: "Please input your name!" }]}>
               <Input value={name} onChange={handleName} size="large" />
             </Form.Item>
             <Form.Item
-              label="CORREO ELECTRONICO"
+              label="Email Address"
               name="email"
               rules={[{ required: true, message: "Please input your email!" }]}
             >
               <Input value={email} onChange={handleEmail} size="large" />
             </Form.Item>
             <Form.Item
-              label="CONTRASEÑA"
+              label="Password"
               name="password"
               rules={[{ required: true, message: "Please input your password!" }]}
             >
@@ -65,7 +65,7 @@ function HomePage() {
         
             <Form.Item>
               <Button type="primary" htmlType="submit" className="navbar__button" size="large">
-                Registrarse
+                Register
               </Button>
             </Form.Item>
           </Form>

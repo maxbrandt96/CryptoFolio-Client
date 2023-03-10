@@ -4,6 +4,7 @@ import { Descriptions } from "antd";
 import axios from "axios";
 import CoinChart from '../../services/chart'
 import "./CoinPage.css";
+import Navbar from "../../components/Navbar/Navbar";
 
 function CoinPage() {
   const { id } = useParams();
@@ -29,6 +30,7 @@ function CoinPage() {
   const { name, image, symbol, market_data, description } = coinData;
 
   return (
+    
     <div className="coin-page">
       <div className="coin-page__header">
         <h1 className="coin-page__title">{name} ({symbol.toUpperCase()})</h1>
@@ -38,12 +40,6 @@ function CoinPage() {
         <div className="coin-page__grid-item">
           <CoinChart coinId={id} timePeriod={timePeriod} />
           <div className="coin-page__time-period">
-            <button
-              className={`coin-page__time-period-button ${timePeriod === '1d' ? 'active' : ''}`}
-              onClick={() => handleTimePeriodClick('1d')}
-            >
-              1D
-            </button>
             <button
               className={`coin-page__time-period-button ${timePeriod === '7d' ? 'active' : ''}`}
               onClick={() => handleTimePeriodClick('7d')}

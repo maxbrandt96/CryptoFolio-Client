@@ -138,7 +138,7 @@ function ProfilePage() {
       
     },
     {
-      title: "Cantidad",
+      title: "Quantity",
       dataIndex: "quantity",
       key: "quantity",
       render: (text, record) =>
@@ -162,13 +162,13 @@ function ProfilePage() {
     },
     
     {
-      title: "Precio",
+      title: "Price",
       dataIndex: "price",
       key: "price",
       render: (text, record) => (record.name ? text : null),
     },
     {
-      title: "Cambio 24h",
+      title: "Change 24h",
       dataIndex: "priceChange",
       key: "priceChange",
       render: (text, record) =>
@@ -185,23 +185,23 @@ function ProfilePage() {
       render: (text, record) => (record.name ? text : null),
     },
     {
-      title: "Editar",
+      title: "Edit",
       dataIndex: "edit",
       key: "edit",
       render: (text, record) =>
         editingCoinId === record.key && record.name ? (
           <button className="navbar__button" onClick={() => handleEdit(record.key, record.quantity)}>Save</button>
         ) : record.name ? (
-          <button className="navbar__button" onClick={() => setEditingCoinId(record.key)}>Editar</button>
+          <button className="navbar__button" onClick={() => setEditingCoinId(record.key)}>Edit</button>
         ) : null,
     },
     {
-      title: "Eliminar",
+      title: "Delete",
       dataIndex: "delete",
       key: "delete",
       render: (text, record) =>
         record.name ? (
-          <button className="navbar__button" onClick={() => handleDelete(record.key)}>Eliminar</button>
+          <button className="navbar__button" onClick={() => handleDelete(record.key)}>Delete</button>
         ) : null,
     },
   ];
@@ -222,7 +222,7 @@ function ProfilePage() {
     alignItems: "center",
     padding: "0.5rem",
     fontSize: "1.2rem",
-    marginLeft: "85rem"
+    marginLeft: "5rem"
   };
   
   
@@ -249,7 +249,7 @@ function ProfilePage() {
             pagination={false}
             footer={() => (
               <footer style={footerStyles}>
-                <span style={labelStyles}>Balance Total:</span>
+                <span style={labelStyles}>Total Balance:</span>
                 <span>${totalBalance.toFixed(2)}</span>
               </footer>
             )}

@@ -56,12 +56,20 @@
     border-radius: 8px;
     color: white;
     background-color: #8b5af3;
-    padding: 5px;
+    padding: 1px;
   }
 
   .spanName{
     background-color: #8b5af3;
     border-radius: 8px;
     color: white;
-    padding: 5px;
+    padding: 1px;
+  }
+  footer span:first-child {
+    margin-right: 200px;
+    
+  }
+  
+  footer span:last-child {
+    margin-right: 1px;
   }

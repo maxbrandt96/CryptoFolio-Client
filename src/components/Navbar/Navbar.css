@@ -36,3 +36,6 @@
     transform: translateY(-2px);
   }
   
+  .navbar__logo{
+    width: 1px;
+  }

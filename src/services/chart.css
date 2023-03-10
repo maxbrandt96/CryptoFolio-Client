@@ -1,0 +1,12 @@
+.chart-title, .legend-labels, .tooltip {
+    color: white !important;
+  }
+  .chart-container h2,
+.chart-container .legend,
+.chart-container .tooltip {
+  color: white;
+}
+.chart-container {
+    background-color: white;
+  }
+  

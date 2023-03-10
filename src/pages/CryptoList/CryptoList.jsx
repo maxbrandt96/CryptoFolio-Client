@@ -17,7 +17,7 @@ function CryptoList() {
   const {user } = useContext(AuthContext);
   const userId = user._id
   const inputRef = useRef(null);
-  console.log(user._id)
+  
   const columns = [
     {
       title: "Rank",
@@ -25,7 +25,7 @@ function CryptoList() {
       key: "rank",
     },
     {
-      title: "Nombre",
+      title: "Name",
       dataIndex: "name",
       key: "name",
       render: (text, record) => (
@@ -41,17 +41,17 @@ function CryptoList() {
       ),
     },
     {
-      title: "Precio",
+      title: "Price",
       dataIndex: "price",
       key: "price",
     },
     {
-      title: "Capitalizacion de mercado",
+      title: "Market Cap",
       dataIndex: "marketCap",
       key: "marketCap",
     },
     {
-      title: "Volumen 24h",
+      title: "Volume 25h",
       dataIndex: "volume24h",
       key: "volume24h",
     },
@@ -66,7 +66,7 @@ function CryptoList() {
       ),
     },
     {
-      title: "Agregar a portafolio",
+      title: "Add to portfolio",
       dataIndex: "add",
       key: "add",
       render: (text, record) => {
@@ -121,7 +121,6 @@ function CryptoList() {
 
                   // Update the portfolio state with the new data
                   // setPortfolio(updatedPortfolio);
-                  console.log(portfolio)
                   setPortfolio((prevState) => ({
                     ...prevState,
                     [record.key]: "",
@@ -159,7 +158,6 @@ function CryptoList() {
             },
           }
         );
-        console.log("Data from API:", data);
         const mappedData = data?.map((crypto) => {
           return {
             key: crypto.id,
@@ -172,7 +170,6 @@ function CryptoList() {
             priceChangePercentage24h: crypto.price_change_percentage_24h,
           };
         });
-        console.log("Mapped data:", mappedData);
         setCryptoData(mappedData || []);
         const timestamp = new Date();
         localStorage.setItem(
@@ -192,9 +189,10 @@ function CryptoList() {
   );
   
   return (
-    <div>
+    <div className="search">
+      <p>Search</p>
       <Input
-        placeholder="Busca por nombre"
+        placeholder="Search by Name"
         value={searchText}
         onChange={handleSearch}
         style={{ marginBottom: "16px", width: "200px" }}

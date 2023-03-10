@@ -38,9 +38,11 @@
     width: 700px;
     margin: 8px;
     padding: 16px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(253, 253, 253);
     border-radius: 4px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+    color: white; /* Set text color to white */ 
+
   }
   
   .coin-page__grid-item:first-child {
@@ -55,17 +57,14 @@
     font-size: 18px;
     margin-bottom: 8px;
     text-align: center;
-    font: solid white;
+    font: solid black;
   }
   
   .coin-page__grid-item p {
     font-size: 14px;
     text-align: center;
   }
-  .coin-page,
-  .coin-page * {
-    color: white;
-  }
+  
   
   .coin-page__grid-item p,
   .coin-page__grid-item h3 {
@@ -83,3 +82,14 @@
   #coin-chart {
     height: 400px;
   }
+
+  .coin-page__time-period-button {
+   color: #fff !important;
+  border-radius: 4px !important;
+  font-weight: bold;
+  background-color: #8b5af3 !important;
+  transition: all 0.3s ease;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+ 

@@ -13,3 +13,20 @@ body{
   margin-right: 50px;
 }
 
+.search{
+  justify-content: center;
+}
+.search p {
+  display: inline-block;
+  margin-right: 8px;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+
+}
+
+.search input {
+  display: inline-block;
+  margin-right: 16px;
+  width: 200px;
+  margin-bottom: 16px;
+}

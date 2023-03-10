@@ -50,6 +50,7 @@ function App() {
 
         <Route exact path="/coins/:id" element={<CoinPage />} />
       </Routes>
+      
     </div>
   );
 }

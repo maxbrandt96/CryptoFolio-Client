@@ -21,61 +21,27 @@ function Navbar() {
         </Link>
       </div>
 
-      {isLoggedIn && location.pathname === "/" && (
+      {isLoggedIn && (
         <div className="navbar__menu">
-          <Link to="/profile">
-            <Button className="navbar__button" type="primary">
-              {user && user.name}
-            </Button>
-          </Link>
+          {location.pathname !== "/crypto-list" && (
+            <Link to="/crypto-list">
+              <Button className="navbar__button" type="primary">
+                Cryptos
+              </Button>
+            </Link>
+          )}
 
-          <Link to="/crypto-list">
-            <Button className="navbar__button" type="primary">
-              Cryptos
-            </Button>
-          </Link>
+          {location.pathname !== "/profile" && (
+            <Link to="/profile">
+              <Button className="navbar__button" type="primary">
+                Profile
+              </Button>
+            </Link>
+          )}
 
           <Button className="navbar__button" type="primary" danger onClick={logOutUser}>
             Logout
           </Button>
-        </div>
-      )}
-
-      {isLoggedIn && location.pathname === "/crypto-list" && (
-        <div className="navbar__menu">
-          <Link to="/profile">
-            <Button className="navbar__button" type="primary">
-              {user && user.name}
-            </Button>
-          </Link>
-
-          <Button className="navbar__button" type="primary" danger onClick={logOutUser}>
-            Logout
-          </Button>
-        </div>
-      )}
-
-      {isLoggedIn && location.pathname === "/profile" && (
-        <div className="navbar__menu">
-          <Link to="/crypto-list">
-            <Button className="navbar__button" type="primary">
-              Cryptos
-            </Button>
-          </Link>
-
-          <Button className="navbar__button" type="primary" danger onClick={logOutUser}>
-            Logout
-          </Button>
-        </div>
-      )}
-
-      {!isLoggedIn && (location.pathname === "/login" || location.pathname === "/signup") && (
-        <div className="navbar__menu">
-          <Link to="/">
-            <Button className="navbar__button" type="primary">
-              Inicio
-            </Button>
-          </Link>
         </div>
       )}
 
@@ -83,7 +49,17 @@ function Navbar() {
         <div className="navbar__menu">
           <Link to="/login">
             <Button className="navbar__button" type="primary">
-              Ingresar
+              Log In
+            </Button>
+          </Link>
+        </div>
+      )}
+
+      {!isLoggedIn && (location.pathname === "/signup" || location.pathname === "/login") && (
+        <div className="navbar__menu">
+          <Link to="/">
+            <Button className="navbar__button" type="primary">
+              Home
             </Button>
           </Link>
         </div>
