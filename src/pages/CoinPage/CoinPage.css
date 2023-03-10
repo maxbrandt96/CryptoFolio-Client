@@ -80,3 +80,6 @@
     display: flex;
   }
 
+  #coin-chart {
+    height: 400px;
+  }
