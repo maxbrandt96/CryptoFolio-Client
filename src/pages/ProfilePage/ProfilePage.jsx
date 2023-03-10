@@ -21,7 +21,9 @@ function ProfilePage() {
     async function fetchData() {
       try {
         const response = await axios.get(`http://localhost:5005/api/${user._id}/portfolio`);
-        setPortfolioData(response.data.cryptos);
+        if (Object.keys(response.data.cryptos).length > 0) {
+          setPortfolioData(response.data.cryptos);
+        }
 
         async function fetchCoins() {
           try {
@@ -202,22 +204,7 @@ function ProfilePage() {
     },
   ];
   
-  // const dataSource = Object.keys(portfolioData).map((key) => {
-  //   const coin = coins.find((coin) => coin._id === key);
-  //   const price = coin ? coin.current_price : 0;
-  //   const name = coin ? coin.name : key;
-  //   console.log(key, coin, price); // Check price calculation
-
-  //   return {
-  //     key: key,
-  //     name: name,
-  //     quantity: portfolioData[key],
-  //     price: `$${price.toFixed(2)}`,
-  //     priceChange: coin ? coin.price_change_percentage_24h : 0,
-  //     total: `$${(portfolioData[key] * price).toFixed(2)}`,
-  //     iconUrl: coin ? coin.image : "",
-  //   };
-  // });
+  
   const totalBalance = Object.keys(portfolioData).reduce((acc, coinId) => {
     const coin = coins.find((c) => c.id === coinId);
     const price = coin ? coin.current_price : 0;
@@ -244,28 +231,35 @@ function ProfilePage() {
   
   return (
     <div>
-      <div className="ProfDiv" style={{marginLeft: "5rem", marginRight: "5rem",}}>
-      <div>
-        
-      <h2 className="h2"><Avatar size={64} icon={<UserOutlined />} /> <span className="spanName">Name: {user.name}</span> <span className="emailSpan">Email: {user.email}</span>  </h2>
-        <div style={{ height: "700px",  marginBottom: "1rem", }}>
-        <Table
-  dataSource={tableData}
-  columns={columns}
-  className="table"
-  rowClassName="table-row"
-  scroll={{ y: 570 }}
-  pagination={false}
-  footer={() => (
-    <footer style={footerStyles}>
-      <span style={labelStyles}>Balance Total:</span>
-      <span>${totalBalance.toFixed(2)}</span>
-    </footer>
-  )}
-/>
+      <div className="ProfDiv" style={{ marginLeft: "5rem", marginRight: "5rem" }}>
+        <h2 className="h2">
+          <Avatar size={64} icon={<UserOutlined />} />{" "}
+          <span className="spanName">Name: {user.name}</span>{" "}
+          <span className="emailSpan">Email: {user.email}</span>{" "}
+        </h2>
+        <div style={{ height: "700px", marginBottom: "1rem" }}>
+          <Table
+            dataSource={tableData}
+            columns={columns}
+            className="table"
+            rowClassName="table-row"
+            scroll={{ y: 570 }}
+            pagination={false}
+            footer={() => (
+              <footer style={footerStyles}>
+                <span style={labelStyles}>Balance Total:</span>
+                <span>${totalBalance.toFixed(2)}</span>
+              </footer>
+            )}
+          />
+          {Object.keys(portfolioData).length === 0 && (
+            <div style={{ textAlign: "center", fontWeight: "bold" }}>
+              No coins in your portfolio yet.
+            </div>
+          )}
         </div>
       </div>
     </div>
-  </div>);
+  );
 }
 export default ProfilePage;
