@@ -199,7 +199,7 @@ function CryptoList() {
         onChange={handleSearch}
         style={{ marginBottom: "16px", width: "200px" }}
       />
-      <Table dataSource={filteredData} columns={columns} />
+      <Table dataSource={filteredData} columns={columns} pagination={{ pageSizeOptions: ["10"], showSizeChanger: false }} />
     </div>
   );
 }

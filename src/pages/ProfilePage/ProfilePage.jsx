@@ -153,7 +153,9 @@ function ProfilePage() {
                 )
               )
             }
+            style={{ width: "50px" }}
           />
+
         ) : record.name ? (
           text
         ) : null,
@@ -234,8 +236,8 @@ function ProfilePage() {
       <div className="ProfDiv" style={{ marginLeft: "5rem", marginRight: "5rem" }}>
         <h2 className="h2">
           <Avatar size={64} icon={<UserOutlined />} />{" "}
-          <span className="spanName">Name: {user.name}</span>{" "}
-          <span className="emailSpan">Email: {user.email}</span>{" "}
+          <span className="spanName"> {user.name}</span>{" "}
+          <span className="emailSpan"> {user.email}</span>{" "}
         </h2>
         <div style={{ height: "700px", marginBottom: "1rem" }}>
           <Table
