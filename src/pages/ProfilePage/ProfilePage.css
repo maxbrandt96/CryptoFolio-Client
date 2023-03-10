@@ -1,0 +1,67 @@
+
+  .table-row {
+  height: 50px;
+}
+.ProfDiv{
+    border-radius: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    color: white;
+    display: flex;
+    font-family: 'Oswald', sans-serif;
+    flex-direction: column;
+}
+
+
+.divP {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .divP > div.ant-avatar {
+    margin-right: 1rem;
+    border: 2px solid #ddd;
+  }
+  
+  .divP > div.ant-avatar:hover {
+    border-color: #1890ff;
+  }
+  
+  .divP > div.ant-avatar .anticon {
+    font-size: 2rem;
+  }
+  
+  .divP > p {
+    font-size: 1.2rem;
+  }
+
+  .div2{
+    display: flex;
+    flex-direction: row;
+    
+  }
+  .email {
+    margin-right: 1rem;
+  }
+  
+  .h2{
+    margin-right: 1250px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .emailSpan{
+    margin-left: 10px;
+    border-radius: 8px;
+    color: white;
+    background-color: #8b5af3;
+    padding: 5px;
+  }
+
+  .spanName{
+    background-color: #8b5af3;
+    border-radius: 8px;
+    color: white;
+    padding: 5px;
+  }

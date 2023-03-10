@@ -56,6 +56,16 @@ function CryptoList() {
       key: "volume24h",
     },
     {
+      title: "Change 24h",
+      dataIndex: "priceChangePercentage24h",
+      key: "priceChangePercentage24h",
+      render: (text) => (
+        <span style={{ color: text > 0 ? "green" : "red" }}>
+          {text.toFixed(2)}%
+        </span>
+      ),
+    },
+    {
       title: "Agregar a portafolio",
       dataIndex: "add",
       key: "add",
@@ -123,11 +133,7 @@ function CryptoList() {
             >
               Add
             </Button>
-            {currentValue > 0 && (
-              <span style={{ marginLeft: "8px" }}>
-                ({currentValue.toFixed(2)})
-              </span>
-            )}
+            
           </div>
         );
       },
@@ -163,6 +169,7 @@ function CryptoList() {
             price: `$${crypto.current_price.toFixed(2)}`,
             marketCap: `$${crypto.market_cap.toLocaleString()}`,
             volume24h: `$${crypto.total_volume.toLocaleString()}`,
+            priceChangePercentage24h: crypto.price_change_percentage_24h,
           };
         });
         console.log("Mapped data:", mappedData);
